@@ -1,18 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <title>Simple Note Web App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todolist วัยรุ่นสดใส</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
+  <meta name="theme-color" content="#FF4E50">
 </head>
 <body>
   <div class="container">
-    <h1>เว็บบันทึกโน้ต</h1>
-    <form id="note-form">
-      <input type="text" id="note-input" placeholder="เขียนโน้ตของคุณ..." required>
-      <button type="submit">บันทึก</button>
+    <h1>🌈 Todolist วัยรุ่นสดใส</h1>
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="เพิ่มสิ่งที่ต้องทำวันนี้..." autocomplete="off" required>
+      <button type="submit">+ เพิ่ม</button>
     </form>
-    <ul id="notes-list"></ul>
+    <ul id="todo-list"></ul>
+    <p class="credit">สร้างด้วย 💜 โดยคุณ</p>
   </div>
   <script src="app.js"></script>
+  <script>
+    // Register service worker
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
+  </script>
 </body>
 </html>
