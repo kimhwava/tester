@@ -1,37 +1,43 @@
-// Simple note web app logic
-const noteForm = document.getElementById('note-form');
-const noteInput = document.getElementById('note-input');
-const notesList = document.getElementById('notes-list');
+const todoForm = document.getElementById('todo-form');
+const todoInput = document.getElementById('todo-input');
+const todoList = document.getElementById('todo-list');
 
-// Load notes from localStorage
-let notes = JSON.parse(localStorage.getItem('notes') || '[]');
-renderNotes();
+// โหลดรายการจาก localStorage
+let todos = JSON.parse(localStorage.getItem('todolist') || '[]');
+renderTodos();
 
-noteForm.addEventListener('submit', function(e) {
+todoForm.addEventListener('submit', function(e) {
   e.preventDefault();
-  const noteText = noteInput.value.trim();
-  if (noteText) {
-    notes.push(noteText);
-    localStorage.setItem('notes', JSON.stringify(notes));
-    noteInput.value = '';
-    renderNotes();
+  const text = todoInput.value.trim();
+  if (text) {
+    todos.push({ text, completed: false });
+    localStorage.setItem('todolist', JSON.stringify(todos));
+    todoInput.value = '';
+    renderTodos();
   }
 });
 
-function renderNotes() {
-  notesList.innerHTML = '';
-  notes.forEach((note, idx) => {
+function renderTodos() {
+  todoList.innerHTML = '';
+  todos.forEach((todo, idx) => {
     const li = document.createElement('li');
-    li.textContent = note;
+    li.textContent = todo.text;
+    if (todo.completed) li.classList.add('completed');
+    li.onclick = () => {
+      todos[idx].completed = !todos[idx].completed;
+      localStorage.setItem('todolist', JSON.stringify(todos));
+      renderTodos();
+    };
     const delBtn = document.createElement('button');
     delBtn.textContent = 'ลบ';
     delBtn.className = 'delete-btn';
-    delBtn.onclick = () => {
-      notes.splice(idx, 1);
-      localStorage.setItem('notes', JSON.stringify(notes));
-      renderNotes();
+    delBtn.onclick = (e) => {
+      e.stopPropagation();
+      todos.splice(idx, 1);
+      localStorage.setItem('todolist', JSON.stringify(todos));
+      renderTodos();
     };
     li.appendChild(delBtn);
-    notesList.appendChild(li);
+    todoList.appendChild(li);
   });
 }
