@@ -1,65 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap');
+
 body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f3f3f3;
+  background: linear-gradient(135deg, #F9D423 0%, #FF4E50 100%);
+  min-height: 100vh;
   margin: 0;
-  padding: 0;
+  font-family: 'Kanit', Arial, sans-serif;
 }
+
 .container {
+  background: rgba(255,255,255,0.95);
   max-width: 400px;
   margin: 40px auto;
-  background: #fff;
-  padding: 32px;
-  border-radius: 8px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.11);
+  padding: 36px 28px 24px 28px;
 }
+
 h1 {
   text-align: center;
-  margin-bottom: 24px;
+  color: #FF4E50;
+  margin-bottom: 28px;
+  font-size: 2.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
+
 form {
   display: flex;
   gap: 8px;
 }
-input[type="text"] {
+
+#todo-input {
   flex: 1;
-  padding: 8px;
-  font-size: 1rem;
+  padding: 10px 14px;
+  border: 2px solid #FF4E50;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  outline: none;
+  transition: border 0.2s;
 }
+#todo-input:focus {
+  border-color: #F9D423;
+}
+
 button {
-  padding: 8px 16px;
-  font-size: 1rem;
-  background: #4caf50;
-  color: white;
+  padding: 10px 18px;
+  background: linear-gradient(90deg, #F9D423 0%, #FF4E50 100%);
   border: none;
-  border-radius: 4px;
+  color: #fff;
+  font-size: 1.05rem;
+  border-radius: 8px;
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,78,80,0.08);
+  transition: background 0.2s;
 }
 button:hover {
-  background: #388e3c;
+  background: linear-gradient(90deg, #FF4E50 0%, #F9D423 100%);
 }
+
 ul {
-  margin-top: 24px;
+  margin-top: 28px;
   padding: 0;
   list-style: none;
 }
+
 li {
-  padding: 8px;
-  background: #e7ffe7;
-  margin-bottom: 8px;
-  border-radius: 4px;
+  background: #fffbea;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 1.05rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 0 2px 8px rgba(249,212,35,0.07);
+  transition: box-shadow 0.2s;
+  animation: fadeIn 0.5s;
 }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(12px);}
+  to   { opacity: 1; transform: translateY(0);}
+}
+
+li.completed {
+  text-decoration: line-through;
+  color: #aaa;
+  background: #ffe3e3;
+}
+
 .delete-btn {
-  background: #ff5252;
+  background: #FF4E50;
   color: #fff;
   border: none;
-  padding: 4px 8px;
-  border-radius: 3px;
+  border-radius: 5px;
+  padding: 5px 12px;
+  margin-left: 10px;
   cursor: pointer;
   font-size: 0.9rem;
+  transition: background 0.18s;
 }
 .delete-btn:hover {
-  background: #c62828;
+  background: #F9D423;
+}
+
+.credit {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 0.95rem;
+  color: #ff4e50a0;
 }
