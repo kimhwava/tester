@@ -1,0 +1,22 @@
+{
+  "name": "Todolist วัยรุ่นสดใส",
+  "short_name": "Todolist",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#F9D423",
+  "theme_color": "#FF4E50",
+  "description": "แอปบันทึกสิ่งที่ต้องทำสำหรับวัยรุ่น ดีไซน์สดใส ใช้งานง่าย",
+  "lang": "th",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
